@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 export default class NavBar extends Component {
-
-    state = {
-
-    }
     render() {
 
         return (
@@ -44,10 +40,10 @@ export default class NavBar extends Component {
                                 Country
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.InFilter}>India</a></li>
-                                <li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.UsFilter}>United State</a></li>
-                                <li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.JpFilter}>Japan</a></li>
-                                <li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.ChFilter}>China</a></li>
+                                <li><Link to="/" key='6' className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.InFilter}>India</Link></li>
+                                <li><Link to="/" key='1' className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.UsFilter}>United State</Link></li>
+                                <li><Link to="/" key='2' className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.JpFilter}>Japan</Link></li>
+                                <li><Link to="/" key='3' className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.ChFilter}>China</Link></li>
                             </ul>
                         </div>
                     </div>

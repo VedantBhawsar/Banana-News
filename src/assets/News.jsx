@@ -26,6 +26,7 @@ export class News extends Component {
     }
 
     async componentDidMount() {
+        this.setState({ spinner: true })
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&pageSize=16&page=${this.state.page}`;
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -47,7 +48,7 @@ export class News extends Component {
             spinner: true
         })
         this.setState({ page: this.state.page + 1 });
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}in&category=${this.props.category}&apiKey=${this.props.apikey}&pageSize=16&page=${this.state.page + 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&pageSize=16&page=${this.state.page + 1}`;
         let data = await fetch(url);
         let parsedData = await data.json()
         this.setState({
@@ -61,7 +62,7 @@ export class News extends Component {
     render() {
         return (
             <div className='container' style={{ marginTop: "75px" }}>
-                <h3 className='mx-3 text-center' style={{ fontWeight: "650" }}>Banana News - Top {this.captlizefirstletter(this.props.category)} News</h3>
+                <h3 className='mx-3 text-center' style={{ fontWeight: "650" }}>Banana News - Top {this.captlizefirstletter(this.props.category)} Headlines</h3>
 
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
@@ -72,7 +73,7 @@ export class News extends Component {
                     scrollableTarget="scrollableDiv"
                 >
 
-                    <div className='row container d-flex justify-content-center'  >
+                    <div className='row container d-flex justify-content-start'  >
                         {
                             this.state.articles.map((element) => {
                                 return (
@@ -89,8 +90,9 @@ export class News extends Component {
                         }
                     </div>
                 </InfiniteScroll>
-                <div>
+                <div>{
                     <Spinner hidden={this.state.spinner} />
+                }
                 </div>
             </div >
         )
