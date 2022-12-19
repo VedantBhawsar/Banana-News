@@ -10,6 +10,7 @@ import {
 
 function App() {
   const apikey = 'd32bdc6b771c45b48ff94ec377af6c43';
+  // const apikey2 = process.env.REACT_APP_API_KEY;
 
   return (
     <div>
