@@ -21,12 +21,12 @@ export class News extends Component {
             articles: this.articles,
             spinner: false,
             page: 1,
-            total_article: 1
+            total_article: 1,
         }
     }
 
     async componentDidMount() {
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=${this.props.apikey}&pageSize=16&page=${this.state.page}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&pageSize=16&page=${this.state.page}`;
         let data = await fetch(url);
         let parsedData = await data.json()
         this.setState({
@@ -47,13 +47,13 @@ export class News extends Component {
             spinner: true
         })
         this.setState({ page: this.state.page + 1 });
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=${this.props.apikey}&pageSize=16&page=${this.state.page + 1}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}in&category=${this.props.category}&apiKey=${this.props.apikey}&pageSize=16&page=${this.state.page + 1}`;
         let data = await fetch(url);
         let parsedData = await data.json()
         this.setState({
             articles: this.state.articles.concat(parsedData.articles),
             total_article: parsedData.totalResults,
-            spinner: false
+            spinner: false,
         })
 
     }
@@ -61,7 +61,7 @@ export class News extends Component {
     render() {
         return (
             <div className='container' style={{ marginTop: "75px" }}>
-                <h3 className='mx-3 text-center' style={{ fontWeight: "650" }}>Banana News -  </h3>
+                <h3 className='mx-3 text-center' style={{ fontWeight: "650" }}>Banana News - Top {this.captlizefirstletter(this.props.category)} News</h3>
 
                 <InfiniteScroll
                     dataLength={this.state.articles.length}

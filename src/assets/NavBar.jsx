@@ -3,13 +3,9 @@ import { Link } from 'react-router-dom'
 export default class NavBar extends Component {
 
     state = {
-        search: ''
-    }
-     Textchange = (event) => { 
-        this.setState(event.target.value);
+
     }
     render() {
-        console.log(this.search)
 
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -43,10 +39,17 @@ export default class NavBar extends Component {
                                 <Link className="nav-link" to='/technology'>Technology</Link>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" value={this.search} aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                        <div class="btn-group mx-5  ">
+                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Country
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.InFilter}>India</a></li>
+                                <li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.UsFilter}>United State</a></li>
+                                <li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.JpFilter}>Japan</a></li>
+                                <li><a className="dropdown-item" style={{ cursor: 'pointer' }} onClick={this.props.ChFilter}>China</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </nav>
