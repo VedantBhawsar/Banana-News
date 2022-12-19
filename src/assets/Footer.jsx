@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BsFacebook, BsTwitter, BsGoogle, BsInstagram, BsLinkedin, BsGithub } from 'react-icons/bs'
 export default class Footer extends Component {
     render() {
         return (
@@ -8,27 +9,27 @@ export default class Footer extends Component {
                         <section className="mb-4">
 
                             <div className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                            ><a href="#" className="fa fa-facebook"></a>
+                            ><BsFacebook />
                             </div>
 
 
                             <div className="btn btn-outline-light btn-floating m-1" href="#!" role="button">
-                                <a href="#" className="fa fa-twitter"></a>
+                                <BsTwitter />
                             </div>
 
 
                             <div className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                            ><a href="#" className="fa fa-google"></a></div>
+                            ><BsGoogle /></div>
 
 
                             <div className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                            ><a href="#" className="fa fa-instagram"></a></div>
+                            ><BsInstagram /></div>
 
                             <div className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                            ><a href="#" className="fa fa-linkedin"></a></div>
+                            ><BsLinkedin /></div>
 
                             <div className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                            ><div href="#" className="fa fa-github"></div>
+                            ><BsGithub />
                             </div>
                         </section>
 
